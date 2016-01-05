@@ -1,0 +1,80 @@
+---
+title: "sprintf"
+author: "Brandon Taylor"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Import the package. We will also make heavy usage of chaining: see magrittr's documentation. We will use knitr's kable to format tables.
+
+```{r}
+library(sprintfr)
+library(magrittr)
+library(knitr)
+```
+
+# Base Components
+Let's see what kind of componenets we can use in our string format. 
+
+```{r}
+string_base %>% kable
+```
+
+Each of these base time can be used in a string format:
+
+```{r}
+string_format(double, " ", integer)
+```
+
+# Modifications
+Each base component can be modified with flags or changing options. The default bases will always have no options or flags selected. Each option and flag has a corresponding function.
+
+You can see options available.
+```{r}
+string_option %>% kable
+```
+
+Option assignment has two arguments, an object to modify and new value.
+
+```{r}
+string_format(double %>% use_input(2))
+```
+
+You can also see flags available.
+```{r}
+string_flag %>% kable
+```
+
+Flag assignment has two arguments, an object to modify and new value. By default, the second argument is TRUE. Flags can be turned off by assigning a value of FALSE. For more information about flags, see the sprintf documentation.
+
+```{r}
+string_format(double %>% zero_pad)
+```
+
+```{r}
+string_format(double %>% zero_pad %>% zero_pad(FALSE))
+```
+
+
+# Example
+
+Let's build a complicated string format for fun.
+
+```{r}
+string_format(list(double %>% 
+                     zero_pad,
+                   "1%",
+                   double %>% 
+                     left_justify) %>%
+                use_input(1) %>%
+                always_sign %>%
+                before_decimal(3) %>%
+                after_decimal(0),
+              sep = " and ")
+```
+
+sprintfr is clever about applying modifications over lists. This allows bulk modification. Raw strings can be modified (as "text" above), but it will not effect how they are displayed. Percentages in raw strings will automatically be doubled. Note that the sep argument will be used if named, and defaults to "". This works the same way as in base paste.

@@ -1,0 +1,16 @@
+84ad7dcf3f6e244f1cb5749932c3139d *DESCRIPTION
+5eaa7706f7a19ab72268549b8fdab3a8 *LICENSE
+b0b07935d9e7e6b67398f38c923a06dc *NAMESPACE
+2f6b00c14b987aa465030e2270e3264e *R/sprintfr.R
+81d194acbf40b9406865ddf9fa681bd4 *README.md
+aaba99a19f8403f2ecf3678cc3beb002 *build/vignette.rds
+ece016d84e0cdaf21cc5e70851422044 *inst/doc/sprintfr.R
+0aa1c89b3ebc684f9a4cde7a6091789a *inst/doc/sprintfr.Rmd
+1fcce7b41569e1888876b51ac3cc8175 *inst/doc/sprintfr.html
+3dbf9380f377d3c3b8cd67ca7bd1fa14 *man/string_base.Rd
+a60906d9f3665d669e4a4ce15763a214 *man/string_flag.Rd
+6a80e8d0595448aa93ceb2acc1ccfcec *man/string_format.Rd
+60813590a678b1243daf2d3d88291bd0 *man/string_format_.Rd
+9c5ed0b6645dc8981df23fa277874aab *man/string_option.Rd
+7e90408d6c21f6329566ea1a6fa7c572 *man/string_table.Rd
+0aa1c89b3ebc684f9a4cde7a6091789a *vignettes/sprintfr.Rmd
